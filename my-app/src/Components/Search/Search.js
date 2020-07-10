@@ -25,7 +25,7 @@ function Search() {
              let nombre = response.data.artist.name
              let estilo = response.data.artist.tags.tag[0].name
              let resumen = response.data.artist.bio.summary
-    
+            
                setArtista(nombre)
                setGenero(estilo)
                setResum(resumen)
