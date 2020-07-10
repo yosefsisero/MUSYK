@@ -12,6 +12,7 @@ function Search() {
     const [track, setTrack] = useState ('');
     const [image, setImage] = useState ('');
     const [musica, setMusica] = useState ('')
+    const [similar, setSimilar] = useState('')
 
     const API = `http://ws.audioscrobbler.com/2.0/`;
     const KEY = 'ebbf1095239b4faa07ac8e41009d2575';
@@ -25,10 +26,12 @@ function Search() {
              let nombre = response.data.artist.name
              let estilo = response.data.artist.tags.tag[0].name
              let resumen = response.data.artist.bio.summary
-            
+             let similar1 = response.data.artist.similar.artist[0].name
+    
                setArtista(nombre)
                setGenero(estilo)
                setResum(resumen)
+               setSimilar(similar1)
               
             })
             .catch((error) => {
@@ -74,6 +77,8 @@ useEffect(()=> {
 }, [])
 
 
+
+
     return (
         <>
 
@@ -84,8 +89,24 @@ useEffect(()=> {
                <img src={image}/>
                <p> Track: {track}</p>
                <p>sonido: {musica}</p>
+               <p>Similar: {similar}</p>
         </>
     )
 }
 
 export default Search
+
+/*{ PENDIENTES
+    
+    CON DAVID
+    1: hacer el map para albums,tracks,genero y similares
+    2: como escuchar la musica 
+
+    NUESTROS
+    1:hacer el header y el footer
+    2:hacer el input para buscar 
+    3:hacer componente para el top 10 
+    4:pensar de que poner en la pagina de home
+    5:arreglar search con bootsrap con cards
+
+ }*/
