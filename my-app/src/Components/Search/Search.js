@@ -101,6 +101,7 @@ export default Search
     CON DAVID
     1: hacer el map para albums,tracks,genero y similares
     2: como escuchar la musica 
+    3: tipografias
 
     NUESTROS
     1:hacer el header y el footer

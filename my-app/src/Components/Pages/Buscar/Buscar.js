@@ -8,6 +8,7 @@ function Buscar() {
     return (
         <>
             <Header/>
+            <p>Pagina Search</p>
             <Footer/>
         </>
     )

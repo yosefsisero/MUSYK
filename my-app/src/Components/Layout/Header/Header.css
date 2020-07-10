@@ -1,0 +1,18 @@
+.logo {
+    width: 8%;
+    height: auto;
+    }
+
+#a {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu{
+ margin: 10px;
+ color: red;
+}
+.menu1{
+margin-right: 40px;
+}  
+
