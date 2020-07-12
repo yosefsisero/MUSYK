@@ -7,7 +7,7 @@ function Home() {
     return (
         <>
            <Header/>
-            <p>Pagina Home</p>
+            <p>Pagina Home </p>
             <Search />
             <Footer/>
         </>

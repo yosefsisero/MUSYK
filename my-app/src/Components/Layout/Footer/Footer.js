@@ -1,7 +1,6 @@
 import React from 'react'
 import './Footer.css'
 import Logo from '../Header/Logo.png'
-// import '../../../../node_modules/font-awesome/css/font-awesome.min.css'; 
 
 
 
@@ -13,7 +12,7 @@ function Footer() {
         <footer className="footer">
         
         <img className="logo" src={Logo}/>
-        
+        <i class="fab fa-affiliatetheme"></i>
         <p>© Yosef Sisero / Jacobo Zonana 2020 ® Musyk All Rigths Reserved</p>
         
         {/* <div className="redes">
