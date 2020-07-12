@@ -1,18 +1,24 @@
 .logo {
-    width: 8%;
-    height: auto;
+    max-width: 8% ;
+    max-height: auto;
+    margin-left: 15px;
     }
 
-#a {
+/*#a {
     display: flex;
-    justify-content: space-between;
-}
+    justify-content: space-around;
+}*/
 
 .menu{
  margin: 10px;
  color: red;
+ font-size: 20px;
 }
 .menu1{
 margin-right: 40px;
+}
+.pagina{
+ margin-left: 138px;
+ font-size: 45px;
 }  
 

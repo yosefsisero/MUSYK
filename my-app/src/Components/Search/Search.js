@@ -13,12 +13,13 @@ function Search() {
     const [image, setImage] = useState ('');
     const [musica, setMusica] = useState ('')
     const [similar, setSimilar] = useState('')
+    const [toFind, setToFind] = useState('');
 
     const API = `http://ws.audioscrobbler.com/2.0/`;
     const KEY = 'ebbf1095239b4faa07ac8e41009d2575';
-    const URLINFO = `${API}?method=artist.getinfo&artist=Cher&api_key=${KEY}&format=json`;
-    const URLALBUM = `${API}?method=artist.gettopalbums&artist=cher&api_key=${KEY}&format=json`;
-    const URLTRACK = `${API}?method=artist.gettoptracks&artist=cher&api_key=${KEY}&format=json`;
+    const URLINFO = `${API}?method=artist.getinfo&artist=${toFind}&api_key=${KEY}&format=json`;
+    const URLALBUM = `${API}?method=artist.gettopalbums&artist=${toFind}&api_key=${KEY}&format=json`;
+    const URLTRACK = `${API}?method=artist.gettoptracks&artist=${toFind}&api_key=${KEY}&format=json`;
 
     useEffect(()=> {
             axios.get (URLINFO)
@@ -39,7 +40,7 @@ function Search() {
             })
     
               
-    }, [])
+    }, [toFind])
         
 
     useEffect(()=> {
@@ -56,7 +57,7 @@ function Search() {
      .catch((error) => {
      console.log(error);
      })        
-}, [])
+}, [toFind])
 
 useEffect(()=> {
        
@@ -74,14 +75,16 @@ useEffect(()=> {
     .catch((error) => {
         console.log(error);
     })        
-}, [])
+}, [toFind])
 
 
 
 
     return (
         <>
-
+          
+          <input placeholder=" Search Artist" onChange={(event)=>{setToFind(event.target.value)}}/>
+          <button onClick={(event)=>{setToFind(event.target.value)}}>Search</button>  
                <p> Artist: {artista}</p> 
                <p> Gen: {genero}</p>
                <p> Summary: {resum}</p>
@@ -101,7 +104,7 @@ export default Search
     CON DAVID
     1: hacer el map para albums,tracks,genero y similares
     2: como escuchar la musica 
-    3: tipografias
+    3: tipografias, font awasome
 
     NUESTROS
     1:hacer el header y el footer
