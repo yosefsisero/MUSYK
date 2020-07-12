@@ -1,0 +1,11 @@
+.footer{
+    background-color: red;
+}
+.logo {
+    width: 8%;
+    height: auto;
+    }
+.redes{
+display: flex;
+margin-top:50px;
+}
