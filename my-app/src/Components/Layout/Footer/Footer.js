@@ -12,18 +12,18 @@ function Footer() {
         <footer className="footer">
         
         <img className="logo" src={Logo}/>
-        <i class="fab fa-affiliatetheme"></i>
+        <i className="fab fa-affiliatetheme"></i>
         <p>© Yosef Sisero / Jacobo Zonana 2020 ® Musyk All Rigths Reserved</p>
         
-        {/* <div className="redes">
+         <div className="redes">
            
-           <i><a className="fab fa-facebook-square fa-2x" href="https://www.facebook.com/></a></i>
-           <i><a className="fab fa-twitter fa-2x" href="https://twitter.com/"></a></i>
-           <i><a className="fab fa-instagram fa-2x" href="https://www.instagram.com/"></a></i>
-           <i><a className="fab fa-pinterest fa-2x" href="https://ar.pinterest.com/"></a></i>
-           <i><a className="fab fa-linkedin fa-2x" href="https://www.linkedin.com/"></a></i>
+         <a  href="https://www.facebook.com"><i className="fa fa-facebook fa-2x"></i></a>
+           <a href="https://twitter.com/"><i className="fa fa-twitter fa-2x" ></i></a>
+           <a href="https://www.instagram.com/"><i className="fa fa-instagram fa-2x"></i></a>
+           <a href="https://ar.pinterest.com/"><i className="fa fa-pinterest fa-2x"></i></a>
+           <a href="https://www.linkedin.com/"><i className="fa fa-linkedin fa-2x"></i></a>
        
-        </div> */}
+        </div> 
         
 
 
