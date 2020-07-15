@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react'
 import axios from 'axios';
 import './Search.css'
+import 'bootstrap/dist/css/bootstrap.css'
 
 
 
@@ -101,38 +102,62 @@ useEffect(()=> {
 
 
     return (
+
+        
+
         < div className="fondo">
-          
-          <input placeholder=" Search Artist" onChange={(event)=>{setToFind(event.target.value)}}/>
-          <button onClick={(event)=>{setToFind(event.target.value)}}>Search</button>  
-               <p> Artist: {artista}</p> 
+            <div className="container">
+                <div className="row">
+                    <div className="col-sm"> 
+                        <input placeholder=" Search Artist" onChange={(event)=>{setToFind(event.target.value)}}/>
+                        <button onClick={(event)=>{setToFind(event.target.value)}}>Search</button>  
+                        <h2>{artista}</h2>
+                    </div>
 
-               {tr.map((a) => {
-                   return  <p><audio controls src={a.previewURL} ></audio>{a.name}</p>
-                   
-               })} 
-               
-               <p> Gen: {genero.map((gen) =>{
-                   return <p>{gen.name}</p>
-               })}</p>
+                    <div className="col-sm">
+                        <p> Top Albums: {
+                                album.map((alb)=>{
+                                    return ( 
+                                            <div>
+                                                <p>{alb.name}</p>
+                                                <img src={alb.image[1]['#text']}/> 
+                                            </div>
+                        )
+                        })
+                        }</p>
 
-               <p> Summary: {resum}</p>
 
-               <p> Top Albums: {
-                    album.map((alb)=>{
-                        return <div>
-                            <p>{alb.name}</p>
-                            <img src={alb.image[1]['#text']}/> 
-                            </div>
-                    })
-                    }</p>
+                         <p> Gen: {genero.map((gen) =>{
+                                return <p>{gen.name}</p>
+                        })}</p>                        
+                    </div>
 
-               <p>Similar Artists: {similar.map((sim) => {
-                   return <div>
-                       <p>{sim.name}</p>
-                       </div>
+                    <div className="w-100" />
 
-               })}</p>
+
+                    <div className="col-sm">
+                                    {tr.map((a) => {
+                                        return  <p><audio className="controles" controls src={a.previewURL}></audio>{a.name}</p>
+                                        
+                                    })} 
+                    </div>
+
+                    <div className="col-sm">
+                            <p>Similar Artists: {similar.map((sim) => {
+                            return <div>
+                                        <p>{sim.name}</p>
+                                    </div>
+                            })}</p>
+                    
+                    </div>
+                </div>
+      
+            </div>
+
+            <div>                    
+                <p> Summary: {resum}</p>                     
+            </div>
+
         </div>
     )
 }
@@ -143,6 +168,7 @@ export default Search
     
     CON DAVID
     2:hacer el input para buscar con boton
+    3: ver los errores
 
     NUESTROS
     1:hacer el header y el footer 
