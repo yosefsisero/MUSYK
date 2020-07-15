@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react'
 import axios from 'axios';
+import './Search.css'
 
 
 
@@ -9,12 +10,10 @@ function Search() {
     const [genero, setGenero] = useState ([]);
     const [resum, setResum] = useState ('');
     const [album, setAlbum] = useState ([]);
-    // const [track, setTrack] = useState ([]);
-    // const [musica, setMusica] = useState ([])
     const [similar, setSimilar] = useState([])
     const [toFind, setToFind] = useState('');
     const [id, setId] = useState ('');
-    const [tr, setTr] = useState ('');
+    const [tr, setTr] = useState ([]);
     const [nm,setNm] = useState ('');
 
     const API = `http://ws.audioscrobbler.com/2.0/`;
@@ -22,9 +21,8 @@ function Search() {
     const NAPKEY = `ZmU4YzdlNTAtNDVjNy00NmRjLTkxODItNDJmZTJhNDE1ZjQw`;
     const URLINFO = `${API}?method=artist.getinfo&artist=${toFind}&api_key=${KEY}&format=json&limit=5`;
     const URLALBUM = `${API}?method=artist.gettopalbums&artist=${toFind}&api_key=${KEY}&format=json&limit=5`;
-    // const URLTRACK = `${API}?method=artist.gettoptracks&artist=${toFind}&api_key=${KEY}&format=json&limit=10`;
     const NAPURLINFO = `https://api.napster.com/v2.1/artists/${toFind}?apikey=${NAPKEY}&limit=5`;
-    const NAPTRACK = `https://api.napster.com/v2.1/artists/${id}/tracks/top?apikey=${NAPKEY}&limit=5`
+    const NAPTRACK = `https://api.napster.com/v2.1/artists/${id}/tracks/top?apikey=${NAPKEY}&limit=10`
     
 
     useEffect(()=> {
@@ -63,23 +61,7 @@ function Search() {
      })        
 }, [toFind])
 
-// useEffect(()=> {
-       
-//     axios.get (URLTRACK)
-//     .then((response) => {
-//      let track1 = response.data.toptracks.track
-//      let track2 = response.data.toptracks.track[0].url
-    
-       
-//        setTrack(track1)
-//        setMusica(track2)
-     
-     
-//     })
-//     .catch((error) => {
-//         console.log(error);
-//     })        
-// }, [toFind])
+
 
 useEffect(()=> {
     axios.get (NAPURLINFO)
@@ -100,7 +82,7 @@ useEffect(()=> {
 useEffect(()=> {
     axios.get (NAPTRACK)
     .then((response) => {
-     let tr1 = response.data.tracks[0].previewURL
+     let tr1 = response.data.tracks
      let nm1 = response.data.tracks[0].name
      
 
@@ -119,12 +101,17 @@ useEffect(()=> {
 
 
     return (
-        <>
+        < div className="fondo">
           
           <input placeholder=" Search Artist" onChange={(event)=>{setToFind(event.target.value)}}/>
           <button onClick={(event)=>{setToFind(event.target.value)}}>Search</button>  
                <p> Artist: {artista}</p> 
-               <p><audio controls src={tr} ></audio>{nm}</p>
+
+               {tr.map((a) => {
+                   return  <p><audio controls src={a.previewURL} ></audio>{a.name}</p>
+                   
+               })} 
+               
                <p> Gen: {genero.map((gen) =>{
                    return <p>{gen.name}</p>
                })}</p>
@@ -140,25 +127,13 @@ useEffect(()=> {
                     })
                     }</p>
 
-
-                    
-
-               {/* <p> Track: {track.map((tra) =>{
-                   return <p>{tra.name}</p>
-               })}</p> */}
-
-               {/* <iframe src={musica}/> */}
-
-               
-
-
                <p>Similar Artists: {similar.map((sim) => {
                    return <div>
                        <p>{sim.name}</p>
                        </div>
 
                })}</p>
-        </>
+        </div>
     )
 }
 
