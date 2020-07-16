@@ -130,7 +130,7 @@ useEffect(()=> {
                                     return ( 
                                         
                                         <div className="card-album" style={{width: '10rem'}}>
-                                        <img key={alb.img} src={alb.image[2]['#text']} className="card-img-top" alt="..." />
+                                        <a key={alb.url} href={alb.url}><img key={alb.img} src={alb.image[2]['#text']} className="card-img-top" alt="..." /></a>      
                                         <div className="card-body">
                                         <p className="card-text" key={alb.name}>{alb.name}</p>
                                         </div>

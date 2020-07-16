@@ -15,6 +15,9 @@
  color: red;
  font-size: 20px;
 }
+.menu:hover{
+  color: #c9b66b;
+}
 .menu1{
 margin-right: 40px;
 }
