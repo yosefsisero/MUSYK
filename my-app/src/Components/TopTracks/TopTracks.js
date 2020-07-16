@@ -1,11 +1,11 @@
 import React, { useState, useEffect} from 'react'
 import axios from 'axios';
 
-function TopArtist() {
+function TopTracks() {
 
     const API = `http://ws.audioscrobbler.com/2.0/`;
     const KEY = 'ebbf1095239b4faa07ac8e41009d2575';
-    const URLINFO = `${API}?method=geo.gettopartists&country=mexico&api_key=${KEY}&format=json&limit=10`;
+    const URLINFO = `${API}?method=geo.getToptracks&country=mexico&api_key=${KEY}&format=json&limit=10`;
 
     const [info, setInfo] = useState([]);
 
@@ -13,7 +13,7 @@ function TopArtist() {
        
         axios.get (URLINFO)
            .then((response) => {
-            let info1 = response.data.topartists.artist
+            let info1 = response.data.tracks.track
        
            setInfo(info1)
 
@@ -24,7 +24,7 @@ function TopArtist() {
      },)
     return (
         <div className="fondo">
-            <u><h3>Artists Top 10 </h3></u>
+            <u><h3>Tracks Top 10 </h3></u>
             {info.map((inf)=>{
               return ( 
               <p className="summary1" key={inf.name}>{inf.name}</p> 
@@ -35,5 +35,4 @@ function TopArtist() {
     )
 }
 
-export default TopArtist
-
+export default TopTracks

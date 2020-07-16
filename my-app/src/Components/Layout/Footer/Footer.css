@@ -1,11 +1,15 @@
 .footer{
-    background-color: red;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    align-items: center;
+    margin-bottom: 0;
+    border-top: #c9b66b 3px solid;
 }
-.logo {
+.logof {
+    float: right;
     width: 8%;
     height: auto;
+    margin: 15px;
     }
-.redes{
-display: flex;
-margin-top:50px;
-}

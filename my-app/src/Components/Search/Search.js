@@ -21,9 +21,9 @@ function Search() {
     const KEY = 'ebbf1095239b4faa07ac8e41009d2575';
     const NAPKEY = `ZmU4YzdlNTAtNDVjNy00NmRjLTkxODItNDJmZTJhNDE1ZjQw`;
     const URLINFO = `${API}?method=artist.getinfo&artist=${toFind}&api_key=${KEY}&format=json&limit=5`;
-    const URLALBUM = `${API}?method=artist.gettopalbums&artist=${toFind}&api_key=${KEY}&format=json&limit=5`;
+    const URLALBUM = `${API}?method=artist.gettopalbums&artist=${toFind}&api_key=${KEY}&format=json&limit=6`;
     const NAPURLINFO = `https://api.napster.com/v2.1/artists/${toFind}?apikey=${NAPKEY}&limit=5`;
-    const NAPTRACK = `https://api.napster.com/v2.1/artists/${id}/tracks/top?apikey=${NAPKEY}&limit=10`
+    const NAPTRACK = `https://api.napster.com/v2.1/artists/${id}/tracks/top?apikey=${NAPKEY}&limit=6`
     
 
     useEffect(()=> {
@@ -82,10 +82,10 @@ useEffect(()=> {
 
 useEffect(()=> {
     axios.get (NAPTRACK)
+
     .then((response) => {
      let tr1 = response.data.tracks
      let nm1 = response.data.tracks[0].name
-     
 
        setTr(tr1)
        setNm(nm1)
@@ -103,61 +103,72 @@ useEffect(()=> {
 
     return (
 
-        
-
-        < div className="fondo">
+        <div className="fondo">
+            <div className="row">
+            <div className="col-sm-6 titulos">  
+            <input id="input" placeholder=" Search Artist" onChange={(event)=>{setToFind(event.target.value)}}/>
+            </div> 
+            <div className="col-sm-6 titulos">  
+            <u><h3> Top Albums</h3></u>
+            </div> 
+            </div>
+             
             <div className="container">
                 <div className="row">
-                    <div className="col-sm"> 
-                        <input placeholder=" Search Artist" onChange={(event)=>{setToFind(event.target.value)}}/>
-                        <button onClick={(event)=>{setToFind(event.target.value)}}>Search</button>  
-                        <h2>{artista}</h2>
+                    <div className="col-sm-6"> 
+                        
+                        <u><h2 id="artista">{artista}</h2></u>
+                        {tr.map((a) => {
+                                        return  <p key={a.name}><audio className="controles" controls src={a.previewURL}></audio>{a.name}</p>
+                                        
+                                    })} 
                     </div>
-
-                    <div className="col-sm">
-                        <p> Top Albums: {
+                   
+                    <div className="col-sm-6 cards ">
+                     {
                                 album.map((alb)=>{
                                     return ( 
-                                            <div>
-                                                <p>{alb.name}</p>
-                                                <img src={alb.image[1]['#text']}/> 
-                                            </div>
+                                        
+                                        <div className="card-album" style={{width: '10rem'}}>
+                                        <img key={alb.img} src={alb.image[2]['#text']} className="card-img-top" alt="..." />
+                                        <div className="card-body">
+                                        <p className="card-text" key={alb.name}>{alb.name}</p>
+                                        </div>
+                                        </div>
+                         
                         )
                         })
-                        }</p>
-
-
-                         <p> Gen: {genero.map((gen) =>{
-                                return <p>{gen.name}</p>
-                        })}</p>                        
+                        }
+    
                     </div>
 
                     <div className="w-100" />
 
 
-                    <div className="col-sm">
-                                    {tr.map((a) => {
-                                        return  <p><audio className="controles" controls src={a.previewURL}></audio>{a.name}</p>
-                                        
-                                    })} 
+                    <div className="col-sm-6 segunda">
+                    <u><h3> Gender:</h3></u>    {genero.map((gen) =>{
+                                return <h4 key={gen.name}>{gen.name}</h4>
+                        })}                 
                     </div>
 
-                    <div className="col-sm">
-                            <p>Similar Artists: {similar.map((sim) => {
+                    <div className="col-sm-6 segunda">
+                            <u><h3>Similar Artists:</h3></u> {similar.map((sim) => {
                             return <div>
-                                        <p>{sim.name}</p>
+                                        <h4 key={sim.name}>{sim.name}</h4>
                                     </div>
-                            })}</p>
+                            })}
                     
                     </div>
                 </div>
-      
-            </div>
+
 
             <div>                    
-                <p> Summary: {resum}</p>                     
+                <u><h3 className="summary1"> Summary:</h3></u>  <h4 className="summary2">{resum}</h4>                   
             </div>
 
+            </div>
+
+            
         </div>
     )
 }

@@ -1,7 +1,44 @@
 .fondo{
     background-image: url('../../Fondo.jpg');
-    color: white
+    color: white;
 }
 .controles{
-    color: #f5c542;
+    display: grid;
+}
+.card-body{
+    background-color: black;
+}
+.card-album{
+    margin: 10px;
+}
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+}
+.titulos{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.container{
+    margin-top: 40px;
+}
+.summary2{
+    margin-bottom: 0;
+    padding-bottom: 20px;
+    
+}
+.summary1{
+    padding-top: 30px;
+    margin-bottom: 0;
+    padding-bottom: 5px;
+}
+.segunda{
+    margin-top: 30px;
+}
+#artista{
+    margin-bottom: 30px;
+}
+#input{
+    background-color:#c9b66b;
 }

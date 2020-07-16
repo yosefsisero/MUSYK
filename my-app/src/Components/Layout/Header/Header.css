@@ -4,10 +4,11 @@
     margin-left: 15px;
     }
 
-/*#a {
-    display: flex;
-    justify-content: space-around;
-}*/
+#a {
+  background-color: black;
+  color: white;
+  border-bottom: #c9b66b 3px solid;
+}
 
 .menu{
  margin: 10px;
@@ -20,5 +21,5 @@ margin-right: 40px;
 .pagina{
  margin-left: 138px;
  font-size: 45px;
-}  
+} 
 

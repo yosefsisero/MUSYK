@@ -5,6 +5,7 @@ import Search from '../../Search/Search';
 
 
 
+
 function Buscar() {
     return (
         <>
