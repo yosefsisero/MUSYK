@@ -23,7 +23,7 @@ function TopArtist() {
           })        
      },)
     return (
-        <div className="fondo">
+        <div>
             <u><h3>Artists Top 10 </h3></u>
             {info.map((inf)=>{
               return ( 

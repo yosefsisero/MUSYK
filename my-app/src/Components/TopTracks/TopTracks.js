@@ -23,7 +23,7 @@ function TopTracks() {
           })        
      },)
     return (
-        <div className="fondo">
+        <div>
             <u><h3>Tracks Top 10 </h3></u>
             {info.map((inf)=>{
               return ( 

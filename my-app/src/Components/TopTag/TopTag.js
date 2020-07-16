@@ -23,7 +23,7 @@ function TopTag() {
           })        
      },)
     return (
-        <div className="fondo">
+        <div>
             <u><h3>Tag Top 10 </h3></u>
             {info.map((inf)=>{
               return ( 
