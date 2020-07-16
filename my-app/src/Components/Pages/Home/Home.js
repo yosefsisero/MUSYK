@@ -17,7 +17,7 @@ function Home() {
      <div className="container">
         <div className="row">
           <div className="col-sm">
-          <Link to="/buscar"> <FotosIzq/></Link>
+          <FotosIzq/>
           </div>
           <div className="col-sm">
           <TopArtist/>

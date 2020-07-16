@@ -1,0 +1,8 @@
+.top{
+    margin: 10px;
+    color: white;
+    font-size: 20px;
+   }
+   .top:hover{
+     color: #c9b66b;
+   }

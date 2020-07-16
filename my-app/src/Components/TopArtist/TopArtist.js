@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from 'react'
+import { Link }from 'react-router-dom'
 import axios from 'axios';
 
 function TopArtist() {
@@ -24,10 +25,10 @@ function TopArtist() {
      },)
     return (
         <div>
-            <u><h3>Artists Top 10 </h3></u>
+            <u><h3>Artists Top10</h3></u>
             {info.map((inf)=>{
               return ( 
-              <p className="summary1" key={inf.name}>{inf.name}</p> 
+             <Link to="/buscar"><p className="summary1 top" title="Vamos!!" key={inf.name}>{inf.name}</p></Link>
           )
       })}  
     
