@@ -8,11 +8,9 @@ import TopTracks from '../../TopTracks/TopTracks'
 function Home() {
     return (
         <>
-            <Header/>
-            <div className="home">
+            <Header/>            
             <TopArtist/>
             <TopTracks/>
-            </div>
             <Footer/>
         </>
     )
