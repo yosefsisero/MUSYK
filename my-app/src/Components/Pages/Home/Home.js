@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link }from 'react-router-dom'
+import './Home.css'
 import Header from '../../Layout/Header/Header'
 import Footer from '../../Layout/Footer/Footer'
 import TopArtist from '../../TopArtist/TopArtist'
@@ -14,21 +14,21 @@ function Home() {
         <>
             <Header/>
            
-     <div className="container">
+     <div className="j">
         <div className="row">
-          <div className="col-sm">
+          <div className="col-sm p">
           <FotosIzq/>
           </div>
-          <div className="col-sm">
+          <div className="col-sm bordes">
           <TopArtist/>
           </div>
-          <div className="col-sm">
+          <div className="col-sm bordes">
           <TopTracks/>   
           </div>
-          <div className="col-sm">
+          <div className="col-sm bordes">
           <TopTag/>
           </div>
-          <div className="col-sm">
+          <div className="col-sm u">
           <FotosDer/>
           </div>
         </div>
