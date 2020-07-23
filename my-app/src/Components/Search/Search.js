@@ -15,7 +15,7 @@ function Search() {
     const [toFind, setToFind] = useState('');
     const [id, setId] = useState ('');
     const [tr, setTr] = useState ([]);
-    const [nm,setNm] = useState ('');
+    const [nm, setNm] = useState ('');
 
     const API = `http://ws.audioscrobbler.com/2.0/`;
     const KEY = 'ebbf1095239b4faa07ac8e41009d2575';
