@@ -15,7 +15,7 @@ function Home() {
             <Header/>
            
      <div className="j">
-        <div className="row">
+        <div className="row margen">
           <div className="col-sm p">
           <FotosIzq/>
           </div>

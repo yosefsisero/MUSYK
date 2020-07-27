@@ -16,6 +16,9 @@ function Search() {
     const [id, setId] = useState ('');
     const [tr, setTr] = useState ([]);
     const [nm, setNm] = useState ('');
+    const [nom, setNom] = useState ('');
+    const [you, setYou] = useState ('');
+    const [ida, setIda] = useState ('');
 
     const API = `http://ws.audioscrobbler.com/2.0/`;
     const KEY = 'ebbf1095239b4faa07ac8e41009d2575';
@@ -24,6 +27,8 @@ function Search() {
     const URLALBUM = `${API}?method=artist.gettopalbums&artist=${toFind}&api_key=${KEY}&format=json&limit=6`;
     const NAPURLINFO = `https://api.napster.com/v2.1/artists/${toFind}?apikey=${NAPKEY}&limit=5`;
     const NAPTRACK = `https://api.napster.com/v2.1/artists/${id}/tracks/top?apikey=${NAPKEY}&limit=5`
+    const URLADBNOM = `https://theaudiodb.com/api/v1/json/1/search.php?s=${toFind}`
+    const URLADBYOU = `https://theaudiodb.com/api/v1/json/1/mvid.php?i=${nom}`
     
 
     useEffect(()=> {
@@ -89,6 +94,7 @@ useEffect(()=> {
 
        setTr(tr1)
        setNm(nm1)
+       console.log(tr1)
        
     })
     .catch((error) => {
@@ -97,6 +103,45 @@ useEffect(()=> {
 
       
 }, [id])
+
+useEffect(()=> {
+    axios.get (URLADBNOM)
+
+    .then((response) => {
+     let nom1 = response.data.artists[0].idArtist
+     
+
+       setNom(nom1)
+       console.log(nom1)
+       
+       
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+
+      
+}, [toFind])
+
+useEffect(()=> {
+    axios.get (URLADBYOU)
+    
+    .then((response) => {
+     let you1 = response.data.mvids[0].strMusicVid
+     
+     
+
+       setYou(you1)
+       console.log(you1)
+       
+       
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+
+      
+}, [nom])
 
 
 
@@ -175,16 +220,3 @@ useEffect(()=> {
 
 export default Search
 
-/*{ PENDIENTES
-    
-    CON DAVID
-    2:hacer el input para buscar con boton
-    3: ver los errores
-
-    NUESTROS
-    1:hacer el header y el footer 
-    3:hacer componente para el top 10 
-    4:pensar de que poner en la pagina de home
-    5:arreglar search con bootsrap con cards
-
- }*/
