@@ -18,7 +18,7 @@ function Search() {
     const [nm, setNm] = useState ('');
     const [nom, setNom] = useState ('');
     const [you, setYou] = useState ('');
-    const [ida, setIda] = useState ('');
+   
 
     const API = `http://ws.audioscrobbler.com/2.0/`;
     const KEY = 'ebbf1095239b4faa07ac8e41009d2575';
@@ -128,11 +128,13 @@ useEffect(()=> {
     
     .then((response) => {
      let you1 = response.data.mvids[0].strMusicVid
-     
+     let you2 = you1.slice(32, 43)
+     let you3 = `https://www.youtube.com/embed?v=${you2}`
      
 
-       setYou(you1)
+       setYou(you3)
        console.log(you1)
+       console.log(you2)
        
        
     })
@@ -213,6 +215,9 @@ useEffect(()=> {
 
             </div>
 
+             <div>
+             <iframe width={420} height={315} src={you}  > </iframe>
+            </div>
             
         </div>
     )
