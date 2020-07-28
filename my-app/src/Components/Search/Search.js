@@ -128,13 +128,16 @@ useEffect(()=> {
     
     .then((response) => {
      let you1 = response.data.mvids[0].strMusicVid
-     let you2 = you1.slice(32, 43)
-     let you3 = `https://www.youtube.com/embed?v=${you2}`
+     let you2 = you1.slice(you1.lenght-11)
+     let you3 = you1.slice(you1.lenght-19)
+     let you4 = `https://www.youtube.com/embed/${you2}`
      
 
-       setYou(you3)
-       console.log(you1)
-       console.log(you2)
+       setYou(you4)
+       console.log(`you1 ${you1}`)
+       console.log(`you2 ${you2}`)
+       console.log(`you3 ${you3}`)
+       console.log(`you4 ${you4}`)
        
        
     })
