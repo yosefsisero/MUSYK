@@ -28,7 +28,7 @@ function Search() {
     const NAPURLINFO = `https://api.napster.com/v2.1/artists/${toFind}?apikey=${NAPKEY}&limit=5`;
     const NAPTRACK = `https://api.napster.com/v2.1/artists/${id}/tracks/top?apikey=${NAPKEY}&limit=5`
     const URLADBNOM = `https://theaudiodb.com/api/v1/json/1/search.php?s=${toFind}`
-    const URLADBYOU = `https://theaudiodb.com/api/v1/json/1/mvid.php?i=${nom}`
+    const URLADBYOU = `https://theaudiodb.com/api/v1/json/1/mvid.php?i=${nom}&limit=5`
     
 
     useEffect(()=> {
@@ -128,18 +128,11 @@ useEffect(()=> {
     
     .then((response) => {
      let you1 = response.data.mvids[0].strMusicVid
-     let you2 = you1.slice(you1.lenght-11)
-     let you3 = you1.slice(you1.lenght-19)
-     let you4 = `https://www.youtube.com/embed/${you2}`
-     
+     let you9 = you1.replace("watch?v=", "embed/")
 
-       setYou(you4)
-       console.log(`you1 ${you1}`)
-       console.log(`you2 ${you2}`)
-       console.log(`you3 ${you3}`)
-       console.log(`you4 ${you4}`)
-       
-       
+
+       setYou(you9)
+    
     })
     .catch((error) => {
         console.log(error);
