@@ -11,13 +11,13 @@ function Search() {
     const [genero, setGenero] = useState ([]);
     const [resum, setResum] = useState ('');
     const [album, setAlbum] = useState ([]);
-    const [similar, setSimilar] = useState([])
+    const [similar, setSimilar] = useState([]);
     const [toFind, setToFind] = useState('');
     const [id, setId] = useState ('');
     const [tr, setTr] = useState ([]);
     const [nm, setNm] = useState ('');
     const [nom, setNom] = useState ('');
-    const [you, setYou] = useState ('');
+    const [you, setYou] = useState ([]);
    
 
     const API = `http://ws.audioscrobbler.com/2.0/`;
@@ -127,11 +127,12 @@ useEffect(()=> {
     axios.get (URLADBYOU)
     
     .then((response) => {
-     let you1 = response.data.mvids[0].strMusicVid
-     let you9 = you1.replace("watch?v=", "embed/")
+     let you1 = response.data.mvids
+    //  let you9 = you1.replace("watch?v=", "embed/")
 
 
-       setYou(you9)
+       setYou(you1)
+       
     
     })
     .catch((error) => {
@@ -195,7 +196,8 @@ useEffect(()=> {
                     </div>
 
                     <div className="col-sm-6 segunda">
-                            <u><h3>Similar Artists:</h3></u> {similar.map((sim) => {
+                            <u><h3>Similar Artists:</h3></u> 
+                            {similar.map((sim) => {
                             return <div>
                                         <h4 key={sim.name}>{sim.name}</h4>
                                     </div>
@@ -211,8 +213,17 @@ useEffect(()=> {
 
             </div>
 
-             <div>
-             <iframe width={420} height={315} src={you}  > </iframe>
+             {/* <div>
+             <iframe width={420} height={315} src={you}> </iframe>
+            </div> */}
+
+            <div> 
+                        
+                        
+            {you.map((a) => {
+            return             <div><h3>{a.strMusicVid}</h3></div>
+                                   
+            })} 
             </div>
             
         </div>
