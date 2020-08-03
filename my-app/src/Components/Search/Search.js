@@ -26,8 +26,8 @@ function Search() {
     const URLINFO = `${API}?method=artist.getinfo&artist=${toFind}&api_key=${KEY}&format=json&limit=5`;
     const URLALBUM = `${API}?method=artist.gettopalbums&artist=${toFind}&api_key=${KEY}&format=json&limit=6`;
     const NAPURLINFO = `https://api.napster.com/v2.1/artists/${toFind}?apikey=${NAPKEY}&limit=5`;
-    const NAPTRACK = `https://api.napster.com/v2.1/artists/${id}/tracks/top?apikey=${NAPKEY}&limit=5`
-    const URLADBNOM = `https://theaudiodb.com/api/v1/json/1/search.php?s=${toFind}`
+    const NAPTRACK = `https://api.napster.com/v2.1/artists/${id}/tracks/top?apikey=${NAPKEY}&limit=5`;
+    const URLADBNOM = `https://theaudiodb.com/api/v1/json/1/search.php?s=${toFind}`;
     const URLADBYOU = `https://theaudiodb.com/api/v1/json/1/mvid.php?i=${nom}&limit=5`
     
 
@@ -127,12 +127,20 @@ useEffect(()=> {
     axios.get (URLADBYOU)
     
     .then((response) => {
+
      let you1 = response.data.mvids
-    //  let you9 = you1.replace("watch?v=", "embed/")
+     let a = []
+     
+     for(let i = 0; i <= 4; i++){
 
-
-       setYou(you1)
-       
+         a.push(you1[i].strMusicVid)
+     }
+      let z = a.map((e)=>{
+          return  e.replace("watch?v=", "embed/")
+      })
+      
+      setYou(e)
+      console.log(e)
     
     })
     .catch((error) => {
@@ -141,6 +149,7 @@ useEffect(()=> {
 
       
 }, [nom])
+
 
 
 
@@ -212,19 +221,13 @@ useEffect(()=> {
             </div>
 
             </div>
-
-             {/* <div>
+         
+             <div>
              <iframe width={420} height={315} src={you}> </iframe>
-            </div> */}
-
-            <div> 
+             </div>
+           
                         
-                        
-            {you.map((a) => {
-            return             <div><h3>{a.strMusicVid}</h3></div>
-                                   
-            })} 
-            </div>
+            
             
         </div>
     )
