@@ -16,7 +16,7 @@ function Search() {
     const [id, setId] = useState ('');
     const [tr, setTr] = useState ([]);
     const [nm, setNm] = useState ('');
-    const [nom, setNom] = useState ('');
+    const [nom, setNom] = useState ([]);
     const [you, setYou] = useState ([]);
    
 
@@ -139,8 +139,8 @@ useEffect(()=> {
           return  e.replace("watch?v=", "embed/")
       })
       
-      setYou(e)
-      console.log(e)
+      setYou(z)
+      console.log(z)
     
     })
     .catch((error) => {
@@ -221,10 +221,21 @@ useEffect(()=> {
             </div>
 
             </div>
-         
-             <div>
+            <div>
+                            <u><h3>Similar Artists:</h3></u> 
+                            {you.map((vid) => {
+                            return <div>
+                                        <iframe width={420} height={315} src={vid} key={vid}></iframe>
+                                    </div>
+                            })}
+                    
+                    </div>
+             
+             
+             
+             {/* <div>
              <iframe width={420} height={315} src={you}> </iframe>
-             </div>
+             </div> */}
            
                         
             
