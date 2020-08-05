@@ -9,11 +9,12 @@
     background-color: black;
 }
 .card-album{
-    margin: 10px;
+    margin: 25px;
 }
-.cards{
+.YT{
     display: flex;
     flex-wrap: wrap;
+    width: 800px;
 }
 .titulos{
     display: flex;
@@ -41,4 +42,14 @@
 }
 #input{
     background-color:#c9b66b;
+}
+.discos{
+    display: flex;
+}
+.container{
+    margin-right: 5%;
+    margin-left: 8%;
+}
+#AL{
+    text-align: center;
 }

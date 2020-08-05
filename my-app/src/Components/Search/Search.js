@@ -162,24 +162,33 @@ useEffect(()=> {
             <input id="input" placeholder=" Search Artist" onChange={(event)=>{setToFind(event.target.value)}}/>
             </div> 
             <div className="col-sm-6 titulos">  
-            <u><h3> Top Albums</h3></u>
+            <u><h3> YouTube</h3></u>
             </div> 
             </div>
              
             <div className="container">
                 <div className="row">
-                    <div className="col-sm-6"> 
-                        
-                        <u><h2 id="artista">{artista}</h2></u>
-                        {tr.map((a) => {
-                                        return  <p key={a.name}><audio className="controles" controls src={a.previewURL}></audio>{a.name}</p>
-                                        
-                                    })} 
+
+                    <div className="col-sm-5">                     
+                     <u><h2 id="artista">{artista}</h2></u>
+                     {tr.map((a) => {
+                        return  <p key={a.name}><audio className="controles" controls src={a.previewURL}></audio>{a.name}</p>
+                     })} 
                     </div>
                    
-                    <div className="col-sm-6 cards ">
-                     {
-                                album.map((alb)=>{
+
+                    <div className="col-sm-7 YT">
+                    
+                            {you.map((vid) => {
+                            return <iframe width={250} height={180} src={vid} key={vid}></iframe>         
+                            })}
+                    
+                    </div>
+
+                   <div>
+                   <u><h3 id="AL">Top Albums</h3></u>
+                   <div className="discos">
+                               {album.map((alb)=>{
                                     return ( 
                                         
                                         <div className="card-album" style={{width: '10rem'}}>
@@ -188,24 +197,20 @@ useEffect(()=> {
                                         <p className="card-text" key={alb.name}>{alb.name}</p>
                                         </div>
                                         </div>
-                         
-                        )
-                        })
-                        }
-    
-                    </div>
-
-                    <div className="w-100" />
-
-
+                         )})}
+                   </div>
+                   </div>
+   
+                 <div className="w-100" />
                     <div className="col-sm-6 segunda">
-                    <u><h3> Gender:</h3></u>    {genero.map((gen) =>{
+                        <u><h3> Gender</h3></u>    
+                        {genero.map((gen) =>{
                                 return <h4 key={gen.name}>{gen.name}</h4>
                         })}                 
                     </div>
 
                     <div className="col-sm-6 segunda">
-                            <u><h3>Similar Artists:</h3></u> 
+                            <u><h3>Similar Artists</h3></u> 
                             {similar.map((sim) => {
                             return <div>
                                         <h4 key={sim.name}>{sim.name}</h4>
@@ -216,30 +221,11 @@ useEffect(()=> {
                 </div>
 
 
-            <div>                    
-                <u><h3 className="summary1"> Summary:</h3></u>  <h4 className="summary2">{resum}</h4>                   
-            </div>
+             <div>                    
+                <u><h3 className="summary1"> Summary</h3></u>  <h4 className="summary2">{resum}</h4>                   
+             </div>
 
-            </div>
-            <div>
-                            <u><h3>Similar Artists:</h3></u> 
-                            {you.map((vid) => {
-                            return <div>
-                                        <iframe width={420} height={315} src={vid} key={vid}></iframe>
-                                    </div>
-                            })}
-                    
-                    </div>
-             
-             
-             
-             {/* <div>
-             <iframe width={420} height={315} src={you}> </iframe>
-             </div> */}
-           
-                        
-            
-            
+          </div>
         </div>
     )
 }
