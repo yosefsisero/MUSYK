@@ -130,10 +130,12 @@ useEffect(()=> {
 
      let you1 = response.data.mvids
      let a = []
+     let p = []
      
      for(let i = 0; i <= 5; i++){
 
          a.push(you1[i].strMusicVid)
+         p.push(you1[i].strTrack)
      }
       let z = a.map((e)=>{
           return  e.replace("watch?v=", "embed/")
@@ -141,6 +143,7 @@ useEffect(()=> {
       
       setYou(z)
       console.log(z)
+      console.log(p)
     
     })
     .catch((error) => {
