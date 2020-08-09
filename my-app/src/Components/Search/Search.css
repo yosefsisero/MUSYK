@@ -14,7 +14,7 @@
 .YT{
     display: flex;
     flex-wrap: wrap;
-    width: 800px;
+    
 }
 .titulos{
     display: flex;
@@ -45,6 +45,7 @@
 }
 .discos{
     display: flex;
+    margin: 3px;
 }
 .container{
     margin-right: 5%;
@@ -53,3 +54,18 @@
 #AL{
     text-align: center;
 }
+.col-sm-5{
+    flex: 0 0 28%;
+    max-width: 28%;
+}
+.col-sm-7 {
+    flex: 0 0 72%;
+    max-width: 72%;
+}
+.marco{
+    margin: 5px;
+    margin-top: 40px;
+    margin-bottom: 5px;
+}
+
+

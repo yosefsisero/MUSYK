@@ -131,7 +131,7 @@ useEffect(()=> {
      let you1 = response.data.mvids
      let a = []
      
-     for(let i = 0; i <= 4; i++){
+     for(let i = 0; i <= 5; i++){
 
          a.push(you1[i].strMusicVid)
      }
@@ -180,7 +180,7 @@ useEffect(()=> {
                     <div className="col-sm-7 YT">
                     
                             {you.map((vid) => {
-                            return <iframe width={250} height={180} src={vid} key={vid}></iframe>         
+                            return <iframe className="marco" width={250} height={180} src={vid} key={vid}></iframe>         
                             })}
                     
                     </div>
