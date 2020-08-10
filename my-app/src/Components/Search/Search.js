@@ -191,8 +191,7 @@ useEffect(()=> {
                     <div className="col-sm-7 YT">
                     
                             {you.map((vid) => {
-                            return <iframe className="marco" width={250} height={180} src={vid} key={vid}></iframe>
-                                  
+                            return <iframe className="marco" width={250} height={180} src={vid} key={vid}></iframe>                              
                                     
                             })}
 
