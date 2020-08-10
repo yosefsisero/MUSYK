@@ -18,6 +18,7 @@ function Search() {
     const [nm, setNm] = useState ('');
     const [nom, setNom] = useState ([]);
     const [you, setYou] = useState ([]);
+    const [yout,setYout] = useState ([]);
    
 
     const API = `http://ws.audioscrobbler.com/2.0/`;
@@ -140,10 +141,14 @@ useEffect(()=> {
       let z = a.map((e)=>{
           return  e.replace("watch?v=", "embed/")
       })
+      let w = p.map((q)=>{
+          return q
+      })
       
       setYou(z)
-      console.log(z)
-      console.log(p)
+      setYout(w)
+      console.log(z, w) 
+      
     
     })
     .catch((error) => {
@@ -159,7 +164,8 @@ useEffect(()=> {
 
     return (
 
-        <div className="fondo">
+        <div>
+            <div className="container">
             <div className="row">
             <div className="col-sm-6 titulos">  
             <input id="input" placeholder=" Search Artist" onChange={(event)=>{setToFind(event.target.value)}}/>
@@ -168,6 +174,8 @@ useEffect(()=> {
             <u><h3> YouTube</h3></u>
             </div> 
             </div>
+            </div>
+           
              
             <div className="container">
                 <div className="row">
@@ -183,8 +191,12 @@ useEffect(()=> {
                     <div className="col-sm-7 YT">
                     
                             {you.map((vid) => {
-                            return <iframe className="marco" width={250} height={180} src={vid} key={vid}></iframe>         
+                            return <iframe className="marco" width={250} height={180} src={vid} key={vid}></iframe>
+                                  
+                                    
                             })}
+
+
                     
                     </div>
 
